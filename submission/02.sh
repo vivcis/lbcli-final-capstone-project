@@ -2,7 +2,7 @@
 
 #!/bin/bash
 
-BLOCKHASH=$(bitcoin-cli -regtest getblockhash 243825)
-BLOCK=$(bitcoin-cli -regtest getblock "$BLOCKHASH" 2)
+BLOCKHASH=$(bitcoin-cli getblockhash 243825)
+BLOCK=$(bitcoin-cli getblock "$BLOCKHASH" 2)
 
 echo "$BLOCK" | jq '[.tx[].vout | length] | add'
